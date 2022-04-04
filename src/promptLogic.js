@@ -22,7 +22,8 @@ function promptApp() {
 
     //  Select department
     db.query(`SELECT department_name FROM departments`, (err, res) => {
-        for (let i = 0; i < res.length; i++) {
+      console.log(res);  
+      for (let i = 0; i < res.length; i++) {
             let dept = res[i].department_name;
             deptArr.push(dept);
         }
