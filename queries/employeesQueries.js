@@ -25,7 +25,7 @@ const staffTable = () => {
 };
 
 
-// Add employee: enter first name, last name, role, manager
+// Add employee: enter first & last name, role, manager
 const newStaff = (roleArr, empArr) => {
     const promptApp = require("../src/promptLogic");
 
@@ -93,7 +93,7 @@ const newStaff = (roleArr, empArr) => {
         });
 };
 
-// Update employee: select employee -> update role
+//  select employee and update role
 const updateEmp = (roleArr, empArr) => {
     const promptApp = require("../src/promptLogic");
 

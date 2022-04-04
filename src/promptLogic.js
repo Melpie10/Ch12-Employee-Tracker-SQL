@@ -10,7 +10,7 @@ function promptApp() {
     let empArr = [];
     let roleArr = [];
 
-    // Answer options for selecting department
+    //  Select department
     db.query(`SELECT department_name FROM departments`, (err, res) => {
         for (let i = 0; i < res.length; i++) {
             let dept = res[i].department_name;
@@ -18,7 +18,7 @@ function promptApp() {
         }
     });
 
-    // Answer options for selecting employee
+    //  select employee
     db.query(`SELECT first_name FROM employees`, (err, res) => {
         for (let i = 0; i < res.length; i++) {
             let emp = res[i].first_name;
@@ -26,7 +26,7 @@ function promptApp() {
         }
     });
 
-    // Answer options for selecting role
+    // select role
     db.query(`SELECT title FROM roles`, (err, res) => {
         for (let i = 0; i < res.length; i++) {
             let role = res[i].title;

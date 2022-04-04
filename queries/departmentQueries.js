@@ -1,7 +1,7 @@
 const db = require("../db/connection");
 const inquirer = require("inquirer");
 
-// View Departments table: dept id and dept names
+// Departments table: dept id and  names
 const deptsTable = () => {
     const promptApp = require("../src/promptLogic");
 
@@ -16,7 +16,7 @@ const deptsTable = () => {
     });
 };
 
-// Add dept: enter dept name
+// enter dept name
 const newDept = (deptArr) => {
     const promptApp = require("../src/promptLogic");
 

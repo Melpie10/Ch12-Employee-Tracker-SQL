@@ -1,7 +1,7 @@
 const db = require("../db/connection");
 const inquirer = require("inquirer");
 
-// View Roles table: role id, job title, dept role belongs to, salary
+//  Roles table: role id, job title, dept role belongs to, salary
 const rolesTable = () => {
     const promptApp = require("../src/promptLogic");
     
