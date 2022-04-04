@@ -3,12 +3,12 @@ SOURCE db/schema.sql;
 -- Table Values: Depts 
 INSERT INTO departments (department_name)
 VALUES
-    ("Office Administration"), 1
-    ("Human Resources"), 2
-    ("Disney Talent"), 3
-    ("Imageneers"), 4
-    ("Accounting"), 5
-    ("Park Operations"); 6
+    ("Office Administration"), 
+    ("Human Resources"), 
+    ("Disney Talent"), 
+    ("Imageneers"), 
+    ("Accounting"), 
+    ("Park Operations"); 
 
 -- Table Values: Roles 
 INSERT INTO roles (title, salary, department_id)
@@ -38,4 +38,4 @@ VALUES
 
 
 -- Add mana Foreign Key AFTER  Employees table so  Foreign Key can reference PK in same table
-ALTER TABLE employees ADD CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employees(id);
+-- ALTER TABLE employees ADD CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employees(id);
