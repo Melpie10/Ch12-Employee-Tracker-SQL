@@ -7,12 +7,12 @@ const staffTable = () => {
 
     const sql = `
     SELECT staff.id, staff.first_name, staff.last_name, roles.title AS role, department.department_name AS department, managers.first_name AS manager
-    FROM employees AS staff
+    FROM employee AS staff
     LEFT JOIN roles
     ON staff.role_id = roles.id
-    LEFT JOIN departments
+    LEFT JOIN department
     ON roles.department_id = department.id
-    LEFT JOIN employees AS managers
+    LEFT JOIN employee AS managers
     ON staff.manager_id = managers.id`;
 
     db.query(sql, (err, rows) => {

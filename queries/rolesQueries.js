@@ -6,10 +6,10 @@ const rolesTable = () => {
     const promptApp = require("../src/promptLogic");
     
     const sql = `
-    SELECT roles.id, roles.title, departments.department_name AS department, roles.salary
+    SELECT roles.id, roles.title, department.department_name AS department, roles.salary
     FROM roles
-    LEFT JOIN departments
-    ON roles.department_id = departments.id`;
+    LEFT JOIN department
+    ON roles.department_id = department.id`;
 
     db.query(sql, (err, rows) => {
         if (err) {
@@ -67,7 +67,7 @@ const newRole = (deptArr, roleArr) => {
             const sql = `
                 INSERT INTO roles(title, salary, department_id) 
                 VALUES(?, ?, 
-                    (SELECT id FROM departments WHERE department_name = ?));`
+                    (SELECT id FROM department WHERE department_name = ?));`
             db.query(sql, [title, salary, department], (err, rows) => {
                 if(err) {throw err;}
                 console.log(`New role ${title} has been added!`)
