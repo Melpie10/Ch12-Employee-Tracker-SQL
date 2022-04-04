@@ -34,7 +34,7 @@ VALUES
     ("Sleeping", "Beauty", 12, 15),
     ("Prince", "Charming", 9, 23),
     ("Captain", "Hook", 15, 23),
-    ("Mickey", "Mouse", 1, NULL),
+    ("Mickey", "Mouse", 1, NULL);
 
 
 -- Add mana Foreign Key AFTER  Employees table so  Foreign Key can reference PK in same table
