@@ -6,12 +6,12 @@ const staffTable = () => {
     const promptApp = require("../src/promptLogic");
 
     const sql = `
-    SELECT staff.id, staff.first_name, staff.last_name, roles.title AS role, departments.department_name AS department, managers.first_name AS manager
+    SELECT staff.id, staff.first_name, staff.last_name, roles.title AS role, department.department_name AS department, managers.first_name AS manager
     FROM employees AS staff
     LEFT JOIN roles
     ON staff.role_id = roles.id
     LEFT JOIN departments
-    ON roles.department_id = departments.id
+    ON roles.department_id = department.id
     LEFT JOIN employees AS managers
     ON staff.manager_id = managers.id`;
 
@@ -77,14 +77,14 @@ const newStaff = (roleArr, empArr) => {
             empArr.push(fName);
 
             const sql = `
-                INSERT INTO employees(first_name, last_name, role_id, manager_id)
+                INSERT INTO employee(first_name, last_name, role_id, manager_id)
                 VALUES(?, ?,
                     (SELECT id FROM roles WHERE title = ?),
-                    (SELECT emp.id FROM employees AS emp WHERE emp.first_name = ?))`;
+                    (SELECT emp.id FROM employee AS emp WHERE emp.first_name = ?))`;
             db.query(sql, [fName, lName, role, mgr], (err, result) => {
                 if (err) { throw err; };
             });
-            db.query(`SELECT id, first_name, last_name FROM employees`, (err, rows) => {
+            db.query(`SELECT id, first_name, last_name FROM employee`, (err, rows) => {
                 if (err) { throw err; };
                 console.table(rows);
                 console.log(`New employee ${fName} ${lName} has been added!`);
@@ -117,7 +117,7 @@ const updateEmp = (roleArr, empArr) => {
             let emp = answers.emp;
 
             const sql = `
-                UPDATE employees
+                UPDATE employee
                 SET role_id = (SELECT id FROM roles WHERE title = ?) 
                 WHERE first_name = ?`;
             db.query(sql, [role, emp], (err, result) => {
@@ -125,11 +125,11 @@ const updateEmp = (roleArr, empArr) => {
                 console.log(`${emp}'s role has been updated to ${role};`);
             });
             const sql2 = `
-                SELECT employees.id, employees.first_name, employees.last_name, roles.title
-                FROM employees
+                SELECT employee.id, employee.first_name, employee.last_name, roles.title
+                FROM employee
                 LEFT JOIN roles
-                ON employees.role_id = roles.id
-                WHERE employees.first_name = ?;`
+                ON employee.role_id = roles.id
+                WHERE employee.first_name = ?;`
             db.query(sql2, emp, (err, rows) => {
                 if (err) { throw err; };
                 console.table(rows);

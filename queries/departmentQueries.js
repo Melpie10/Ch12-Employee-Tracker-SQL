@@ -5,7 +5,7 @@ const inquirer = require("inquirer");
 const deptsTable = () => {
     const promptApp = require("../src/promptLogic");
 
-    const sql = `SELECT * FROM departments`;
+    const sql = `SELECT * FROM department`;
 
     db.query(sql, (err, rows) => {
         if (err) {
@@ -39,7 +39,7 @@ const newDept = (deptArr) => {
     .then(answer => {
 
         const sql = `
-        INSERT INTO departments (department_name)
+        INSERT INTO department (department_name)
         VALUES (?);`;
         const dept = answer.deptName;
         
@@ -49,7 +49,7 @@ const newDept = (deptArr) => {
             if (err) {
                 throw err;
             }
-            const sql2 = `SELECT * FROM departments`;
+            const sql2 = `SELECT * FROM department`;
             db.query(sql2, (err, rows) => {
                 if (err) {
                     throw err;
