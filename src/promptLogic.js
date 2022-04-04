@@ -4,6 +4,16 @@ const [deptsTable, newDept] = require("../queries/departmentQueries");
 const [rolesTable, newRole] = require("../queries/rolesQueries");
 const [staffTable, newStaff, updateEmp] = require("../queries/employeesQueries");
 
+var figlet = require('figlet');
+
+figlet('Employee Tracker', function(err, data) {
+    if (err) {
+        console.log('Something went wrong...');
+        console.dir(err);
+        return;
+    }
+    console.log(data)
+});
 
 function promptApp() {
     let deptArr = [];
