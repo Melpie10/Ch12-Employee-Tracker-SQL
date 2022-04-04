@@ -1,5 +1,6 @@
--- Create new database
-DROP DATABASE IF EXISTS walt_disney;
+-- New Database
 
-CREATE DATABASE walt_disney;
-USE walt_disney;
+DROP DATABASE IF EXISTS disney_world;
+
+CREATE DATABASE disney_world;
+USE disney_world;

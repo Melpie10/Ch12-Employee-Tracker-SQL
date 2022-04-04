@@ -1,19 +1,19 @@
+SOURCE db/schema.sql;
 
--- Table Values: Depts 
-INSERT INTO department (name)
+-- TABLE VALUES DEPT
+INSERT INTO department (department_name)
 VALUES
-    ("Imagineers"), 
-    ("Park Operations"); 
+    ("imagineering"),
+    ("park operations");
 
--- Table Values: Roles 
-INSERT INTO  role (title, salary, department_id)
+-- TABLE VALUES ROLES
+INSERT INTO roles (title, salary, department_id)
 VALUES
-    ("Disney-Park Character", 42000, 1),
-    ("Drawing Artist", 35500, 1);
+    ("imagineer", 80000, 1),
+    ("park cast", 80000, 2);
 
-
--- Table Values: Employees 
+-- TABLE VALUES EMPLOYEE
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES 
+VALUES
     ("Mickey", "Mouse", 1, NULL),
     ("Snow", "White", 2, 1);

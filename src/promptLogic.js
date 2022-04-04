@@ -21,7 +21,7 @@ function promptApp() {
     let roleArr = [];
 
     //  Select department
-    db.query(`SELECT department_name FROM departments`, (err, res) => {
+    db.query(`SELECT department_name FROM department`, (err, res) => {
       console.log(res);  
       for (let i = 0; i < res.length; i++) {
             let dept = res[i].department_name;
@@ -30,7 +30,7 @@ function promptApp() {
     });
 
     //  select employee
-    db.query(`SELECT first_name FROM employees`, (err, res) => {
+    db.query(`SELECT first_name FROM employee`, (err, res) => {
         for (let i = 0; i < res.length; i++) {
             let emp = res[i].first_name;
             empArr.push(emp);
